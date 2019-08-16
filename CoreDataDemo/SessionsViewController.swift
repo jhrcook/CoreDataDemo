@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SessionsViewController: UITableViewController {
 
@@ -20,26 +21,67 @@ class SessionsViewController: UITableViewController {
         super.viewDidLoad()
 
     }
+    
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
+        let fetchRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Session.date, ascending: true)
+        ]
+        
+        let fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: DataStore.shared.managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Error fetching speakers: \(nserror), \(nserror.userInfo)")
+        }
+        
+        return fetchedResultsController
+    }()
+    
+}
+    
 
-    // MARK: - Table view data source
+
+// MARK: - Table view data source
+extension SessionsViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! SessionTableViewCell
 
-        // Configure the cell...
+        let session = fetchedResultsController.fetchedObjects?[indexPath.row]
+        cell.titleLabel.text = session?.title
+        cell.speakerLabel.text = session?.speaker?.name.map { "by \($0)" }
+        cell.dateLabel.text = session?.date.map(dateFormatter.string(from:))
 
         return cell
     }
 
+}
+
+
+
+extension SessionsViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddSpeakerViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
@@ -29,7 +30,10 @@ class AddSpeakerViewController: UIViewController {
             present(alert, animated: true, completion: nil)
             return
         }
-        // TODO: add name to Core Data
+        
+        let speaker = Speaker(context: DataStore.shared.managedObjectContext)
+        speaker.name = name
         dismiss(animated: true, completion: nil)
+        DataStore.shared.saveContext()
     }
 }

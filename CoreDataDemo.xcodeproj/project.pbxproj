@@ -15,6 +15,8 @@
 		6D08495D22F77E4E009B09A2 /* AddSpeakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D08495C22F77E4E009B09A2 /* AddSpeakerViewController.swift */; };
 		6D08495F22F77E58009B09A2 /* AddSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D08495E22F77E58009B09A2 /* AddSessionViewController.swift */; };
 		6D08496122F77EA9009B09A2 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D08496022F77EA9009B09A2 /* SessionTableViewCell.swift */; };
+		8413CDDD2306C7CE005C28F2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8413CDDB2306C7CE005C28F2 /* Model.xcdatamodeld */; };
+		8413CDDF2306C855005C28F2 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413CDDE2306C855005C28F2 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		6D08495C22F77E4E009B09A2 /* AddSpeakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpeakerViewController.swift; sourceTree = "<group>"; };
 		6D08495E22F77E58009B09A2 /* AddSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionViewController.swift; sourceTree = "<group>"; };
 		6D08496022F77EA9009B09A2 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
+		8413CDDC2306C7CE005C28F2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8413CDDE2306C855005C28F2 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +64,16 @@
 		6D08494522F777D2009B09A2 /* CoreDataDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6D08494622F777D2009B09A2 /* AppDelegate.swift */,
-				6D08494C22F777D3009B09A2 /* Main.storyboard */,
-				6D08494F22F777D3009B09A2 /* Assets.xcassets */,
-				6D08495122F777D3009B09A2 /* LaunchScreen.storyboard */,
-				6D08495422F777D3009B09A2 /* Info.plist */,
-				6D08495A22F77E2E009B09A2 /* SessionsViewController.swift */,
-				6D08495C22F77E4E009B09A2 /* AddSpeakerViewController.swift */,
 				6D08495E22F77E58009B09A2 /* AddSessionViewController.swift */,
+				6D08495C22F77E4E009B09A2 /* AddSpeakerViewController.swift */,
+				6D08494622F777D2009B09A2 /* AppDelegate.swift */,
+				6D08494F22F777D3009B09A2 /* Assets.xcassets */,
+				8413CDDE2306C855005C28F2 /* DataStore.swift */,
+				6D08495422F777D3009B09A2 /* Info.plist */,
+				6D08495122F777D3009B09A2 /* LaunchScreen.storyboard */,
+				6D08494C22F777D3009B09A2 /* Main.storyboard */,
+				8413CDDB2306C7CE005C28F2 /* Model.xcdatamodeld */,
+				6D08495A22F77E2E009B09A2 /* SessionsViewController.swift */,
 				6D08496022F77EA9009B09A2 /* SessionTableViewCell.swift */,
 			);
 			path = CoreDataDemo;
@@ -144,11 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8413CDDF2306C855005C28F2 /* DataStore.swift in Sources */,
 				6D08494722F777D2009B09A2 /* AppDelegate.swift in Sources */,
 				6D08495F22F77E58009B09A2 /* AddSessionViewController.swift in Sources */,
 				6D08496122F77EA9009B09A2 /* SessionTableViewCell.swift in Sources */,
 				6D08495B22F77E2E009B09A2 /* SessionsViewController.swift in Sources */,
 				6D08495D22F77E4E009B09A2 /* AddSpeakerViewController.swift in Sources */,
+				8413CDDD2306C7CE005C28F2 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +354,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8413CDDB2306C7CE005C28F2 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8413CDDC2306C7CE005C28F2 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8413CDDC2306C7CE005C28F2 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D08493B22F777D2009B09A2 /* Project object */;
 }
