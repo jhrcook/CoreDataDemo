@@ -4,7 +4,7 @@ These are notes on how to go from the `master` branch to `feature/add-core-data`
 
 ## Creating the model
 
-Here, we create the Core Data model structure. Xcode works some magic behind the scene to create an class we can interact with in the code.
+Here, we create the Core Data model structure. Xcode works some magic behind the scene to create a class we can interact with in the code.
 
 1. Create a Core Data file called "Model".
 2. Added two entitities `Session` and `Speaker`.
